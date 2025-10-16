@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Todo List</h1>
-       <form id="todo-form">
+  <div class="container">
+    <h1>Todo List</h1>
+
+    <form id="todo-form">
   <input type="text" id="todo-input" placeholder="Add a new task..." required>
   <button type="submit">Add</button>
-  <button type="button" id="clear-all">Clear All</button>
 </form>
-        <ul id="todo-list"></ul>
-    </div>
-    <script src="app.js"></script>
-<footer>
-    <p>Author: Islam Musleh<br>
-        <a href="mailto:islam.musleh@gmail.com">islam.musleh@gmail.com</a>
-    </p>
-    <a href= "https://github.com/imusleh" target="_blank" title="GitHub">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" style="width:32px;height:32px;vertical-align:middle;">
-    </a>
-</footer>
-</body>
 
+<!-- Move this outside the form -->
+<button id="clear-all" type="button">Clear All</button>
+
+<ul id="todo-list"></ul>
+<ul id="todo-list"></ul>
+<p id="message" class="message"></p>
+
+  </div>
+
+  <script src="app.js"></script>
+
+  <footer>
+    <p>Author: Islam Musleh<br>
+      <a href="mailto:islam.musleh@gmail.com">islam.musleh@gmail.com</a>
+    </p>
+    <a href="https://github.com/imusleh" target="_blank" title="GitHub">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+        alt="GitHub Logo" style="width:32px;height:32px;vertical-align:middle;">
+    </a>
+  </footer>
+</body>
 </html>

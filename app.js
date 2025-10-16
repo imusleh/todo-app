@@ -1,4 +1,3 @@
-
 // Select elements 
 const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
@@ -28,7 +27,7 @@ form.addEventListener('submit', function (event) {
     }
 });
 
-// Add task to list 
+// Add a single task to the screen 
 function addTodoToList(text) {
     const li = document.createElement('li');
     li.textContent = text;
@@ -47,19 +46,32 @@ function addTodoToList(text) {
     list.appendChild(li);
 }
 
-// Save to localStorage 
+// Save tasks to localStorage 
 function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
-// Clear all button 
-clearBtn.addEventListener('click', function () {
-    if (confirm('Are you sure you want to clear all tasks?')) {
-        todos = [];
-        saveTodos();
-        list.innerHTML = '';
-    }
+// Clear all tasks
+clearBtn.addEventListener('click', function (event) {
+  event.preventDefault(); // stop form reload, just in case
+  console.log('Clear button clicked!'); // test log
+
+  if (confirm('Are you sure you want to clear all tasks?')) {
+    todos = [];
+    saveTodos();
+    list.innerHTML = '';
+    showMessage('All tasks cleared!');
+  }
 });
 
+function showMessage(text, color = 'green') {
+  const message = document.getElementById('message');
+  message.textContent = text;
+  message.style.color = color;
+  message.classList.add('show');
 
-
+  // Hide message after 2 seconds
+  setTimeout(() => {
+    message.classList.remove('show');
+  }, 2000);
+}

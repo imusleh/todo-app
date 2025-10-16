@@ -75,4 +75,14 @@ footer {
     padding: 10px 0;
     box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
 }
-
+.message {
+  text-align: center;
+  color: green;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  margin-top: 10px;
+}
+.message.show {
+  opacity: 1;
+}
