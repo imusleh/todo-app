@@ -18,4 +18,10 @@ You can add, complete, and delete tasks — and your list saves automatically in
 Built With
 - HTML  
 - CSS  
-- JavaScript  
+- JavaScript
+  
+---
+
+How to Run
+1. Download or clone this repository:
+   git clone https://github.com/imusleh/todo-app.git
