@@ -38,6 +38,7 @@ function addTodoToList(text) {
     deleteBtn.className = 'delete-btn';
     deleteBtn.onclick = function () {
         li.remove();
+        window.showRandomQuote(); // Show quote when task is done
         todos = todos.filter(t => t !== text);
         saveTodos();
     };
