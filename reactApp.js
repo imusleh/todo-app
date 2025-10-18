@@ -23,7 +23,6 @@ function QuoteDisplay() {
     React.useEffect(() => {
         setFade(true); // Initial fade-in
     }, []);
-    
     return (
         <div
             style={{
