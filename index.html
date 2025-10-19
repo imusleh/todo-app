@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Todo App</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -13,24 +12,18 @@
     <h1>Todo List</h1>
 
     <form id="todo-form">
-  <input type="text" id="todo-input" placeholder="Add a new task..." required>
-  <button type="submit">Add</button>
-</form>
+      <input type="text" id="todo-input" placeholder="Add a new task..." required />
+      <button type="submit">Add</button>
+    </form>
 
-<!-- Move this outside the form -->
-<button id="clear-all" type="button">Clear All</button>
+    <button id="clear-all" type="button">Clear All</button>
 
-<ul id="todo-list"></ul>
-<p id="message" class="message"></p>
-
+    <ul id="todo-list"></ul>
+    <p id="message" class="message"></p>
   </div>
-  <div id="quote-section"></div>
 
-  <!-- React setup -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="reactApp.js"></script> <!-- QuoteDisplay component -->
-  <script src="app.js"></script>      <!-- Todo app -->
+  <!-- React quote section -->
+  <div id="quote-section"></div>
 
   <footer>
     <p>Author: Islam Musleh<br>
@@ -41,6 +34,13 @@
         alt="GitHub Logo" style="width:32px;height:32px;vertical-align:middle;">
     </a>
   </footer>
-  
+
+  <!-- Load React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Your scripts -->
+  <script src="reactApp.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
