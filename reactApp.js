@@ -1,49 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-  function QuoteDisplay() {
-    const quotes = [
-      "Stay focused and never give up.",
-      "Your only limit is your mind.",
-      "Each task done is one step forward.",
-      "Way to go!"
-    ];
+function ClockDisplay() {
+  const [time, setTime] = React.useState(new Date());
 
-    const [quote, setQuote] = React.useState(quotes[0]);
-    const [fade, setFade] = React.useState(false);
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    function showRandomQuote() {
-      const random = Math.floor(Math.random() * quotes.length);
-      setFade(false);
-      setTimeout(() => {
-        setQuote(quotes[random]);
-        setFade(true);
-      }, 100);
-    }
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayName = days[time.getDay()];
 
-    // Make this function accessible to your app.js
-    window.showRandomQuote = showRandomQuote;
+  return (
+    <div style={{
+      textAlign: "center",
+      padding: "15px",
+      backgroundColor: "#f4f4f4",
+      borderRadius: "10px",
+      marginTop: "20px",
+      fontSize: "1.2rem",
+      color: "#333"
+    }}>
+      <p>{dayName}</p>
+      <p>{time.toLocaleTimeString()}</p>
+    </div>
+  );
+}
 
-    React.useEffect(() => {
-      setFade(true);
-    }, []);
-
-    return (
-      <div
-        style={{
-          marginTop: "20px",
-          fontStyle: "italic",
-          padding: "10px",
-          textAlign: "center",
-          color: "#555",
-          minHeight: "40px",
-          opacity: fade ? 1 : 0,
-          transition: "opacity 0.5s ease-in-out",
-        }}
-      >
-        <p>"{quote}"</p>
-      </div>
-    );
-  }
-
-  const root = ReactDOM.createRoot(document.getElementById("quote-section"));
-  root.render(<QuoteDisplay />);
-});
+const root = ReactDOM.createRoot(document.getElementById("clock-section"));
+root.render(<ClockDisplay />);

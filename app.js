@@ -3,12 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("todo-input");
   const list = document.getElementById("todo-list");
   const clearBtn = document.getElementById("clear-all");
-  const message = document.getElementById("message");
 
+  // Load saved tasks from localStorage
   let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
+  // Show saved tasks on load
   todos.forEach(addTodoToList);
 
+  // Add new task
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const task = input.value.trim();
@@ -23,46 +25,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Add a task item to the list
   function addTodoToList(text) {
     const li = document.createElement("li");
     li.textContent = text;
 
+    // Create delete ("Done") button
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Done";
     deleteBtn.className = "delete-btn";
-    deleteBtn.onclick = function () {
+
+    deleteBtn.addEventListener("click", function () {
       li.remove();
       todos = todos.filter((t) => t !== text);
       saveTodos();
-
-      // Call the React quote function
-      if (window.showRandomQuote) {
-        window.showRandomQuote();
-      }
-    };
+    });
 
     li.appendChild(deleteBtn);
     list.appendChild(li);
   }
 
+  // Save tasks to localStorage
   function saveTodos() {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 
+  // Clear all tasks
   clearBtn.addEventListener("click", function () {
     if (confirm("Are you sure you want to clear all tasks?")) {
       todos = [];
       saveTodos();
       list.innerHTML = "";
-      showMessage("All tasks cleared!");
     }
   });
-
-  function showMessage(text, color = "green") {
-    message.textContent = text;
-    message.style.color = color;
-    message.classList.add("show");
-
-    setTimeout(() => message.classList.remove("show"), 2000);
-  }
 });

@@ -86,3 +86,6 @@ footer {
 .message.show {
   opacity: 1;
 }
+#clock-section {
+  margin-top: 20px;
+}
