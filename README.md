@@ -12,7 +12,7 @@ You can add, complete, and delete tasks — and your list saves automatically in
 - Clear all tasks
 - Saves tasks in **localStorage** (keeps your list after refresh)  
 - Simple and clean design
-- Quote displayed when task is done
+- Clock and date is displayed
 
 ---
 
